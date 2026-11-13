@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="description" content="YUSAN DON BOT — free browser games. Play Turbo Racing.">
+<title>YUSAN DON BOT | Gaming</title>
+<style>
+:root{--bg:#080e19;--panel:#111c2d;--panel2:#17243a;--text:#edf4ff;--muted:#9aabc3;--accent:#ffbd35;--cyan:#35d6e8}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 80% -10%,#1a3552 0,transparent 34%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#080e19eF;border-bottom:1px solid #26364d;backdrop-filter:blur(12px)}
+.nav{max-width:1120px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-weight:900;letter-spacing:1.5px;font-size:clamp(18px,3vw,25px)}
+.brand span{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+nav a:hover{color:white}
+main{max-width:1120px;margin:auto;padding:36px 22px 60px}
+.hero{padding:38px 0 30px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(38px,7vw,68px);line-height:.98;margin:14px 0}
+h1 span{color:var(--accent)}
+.lead{color:var(--muted);font-size:17px;line-height:1.7;max-width:570px}
+.hero-art{min-height:230px;border:1px solid #31445f;border-radius:24px;background:linear-gradient(145deg,#1b3551,#101b2b);display:grid;place-items:center;position:relative;overflow:hidden}
+.hero-art:before,.hero-art:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff12;border-radius:50%}
+.hero-art:after{width:180px;height:180px}
+.car-emoji{font-size:100px;filter:drop-shadow(0 18px 15px #0009);transform:rotate(-8deg);z-index:1}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.stat{background:#111c2d;border:1px solid #273950;padding:10px 14px;border-radius:12px;color:var(--muted);font-size:13px}
+.stat b{color:white}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:28px 0 16px}
+h2{font-size:25px;margin:0}
+.section-head p{color:var(--muted);margin:6px 0 0;font-size:14px}
+.game-card{background:linear-gradient(180deg,#142239,#0e1726);border:1px solid #2b405d;border-radius:20px;overflow:hidden;box-shadow:0 20px 50px #0003}
+.game-top{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.game-title{font-size:20px;font-weight:800}
+.tag{font-size:11px;color:#06131a;background:var(--cyan);padding:6px 9px;border-radius:20px;font-weight:900;letter-spacing:.7px}
+.game-area{padding:12px;background:#090f19;display:flex;justify-content:center}
+canvas{display:block;width:min(100%,400px);height:auto;aspect-ratio:400/550;border:2px solid #53657d;border-radius:12px;background:#303b48;touch-action:none}
+.game-info{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:15px 20px;color:var(--muted);font-size:13px}
+.controls{display:flex;justify-content:center;gap:18px;padding:0 16px 18px}
+button{border:0;border-radius:12px;background:var(--accent);color:#17120a;font-weight:900;padding:13px 22px;font-size:15px;cursor:pointer}
+button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button.secondary{background:#263852;color:white;border:1px solid #405574}
+.controls button{font-size:21px;min-width:95px;touch-action:none}
+footer{border-top:1px solid #25364c;color:var(--muted);text-align:center;padding:24px;font-size:13px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:22px}.hero-art{min-height:150px}.car-emoji{font-size:75px}nav a{margin-left:10px}.nav{padding:14px}.lead{font-size:15px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">YUSAN <span>DON BOT</span></div>
+    <nav><a href="#home">Home</a><a href="#games">Games</a><a href="#about">About</a></nav>
+  </div>
+</header>
+<main id="home">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Your gaming destination</div>
+      <h1>PLAY BIG.<br><span>RACE HARD.</span></h1>
+      <p class="lead">Welcome to YUSAN DON BOT — a place to enjoy free browser games. No installation needed. Pick a game and start playing!</p>
+      <div class="stats"><div class="stat"><b>100% Free</b> to play</div><div class="stat"><b>Mobile</b> friendly</div><div class="stat"><b>Instant</b> browser play</div></div>
+    </div>
+    <div class="hero-art" aria-label="Racing car graphic"><div class="car-emoji">🏎️</div></div>
+  </section>
+  <section id="games">
+    <div class="section-head"><div><h2>Featured game</h2><p>Choose your lane and avoid the traffic.</p></div></div>
+    <div class="game-card">
+      <div class="game-top"><div class="game-title">🏁 Turbo Racing</div><div class="tag">PLAY NOW</div></div>
+      <div class="game-area"><canvas id="game" width="400" height="550" aria-label="Turbo Racing game"></canvas></div>
+      <div class="game-info"><span>Score: <b id="score">0</b></span><span>Best: <b id="best">0</b></span><span id="status">Use ← → or buttons to drive</span></div>
+      <div class="controls"><button class="secondary" id="left" aria-label="Move left">⬅️</button><button class="secondary" id="right" aria-label="Move right">➡️</button></div>
+      <div style="padding:0 20px 20px;text-align:center"><button id="restart">START / RESTART RACE</button></div>
+    </div>
+  </section>
+  <section id="about" style="padding-top:34px">
+    <div class="section-head"><div><h2>About YUSAN DON BOT</h2><p>A gaming website made for everyone.</p></div></div>
+    <p class="lead">This is the first game on the site. More games can be added here as the website grows. Share the site link with friends so they can play too.</p>
+  </section>
+</main>
+<footer>© <span id="year"></span> YUSAN DON BOT. Made for fun.</footer>
+<script>
+const canvas=document.getElementById('game'),ctx=canvas.getContext('2d');
+const scoreEl=document.getElementById('score'),bestEl=document.getElementById('best'),statusEl=document.getElementById('status');
+let player={x:180,y:440,w:40,h:70},enemies=[],score=0,speed=4,lineOffset=0,frame=0,running=false,over=false,raf=0,keys={};
+let best=Number(localStorage.getItem('yusanRacingBest')||0);bestEl.textContent=best;
+function drawCar(x,y,color){
+ ctx.fillStyle='#080b10';ctx.fillRect(x-3,y+12,7,17);ctx.fillRect(x+36,y+12,7,17);ctx.fillRect(x-3,y+44,7,17);ctx.fillRect(x+36,y+44,7,17);
+ ctx.fillStyle=color;ctx.beginPath();ctx.roundRect(x,y,40,70,8);ctx.fill();
+ ctx.fillStyle='#bcecff';ctx.beginPath();ctx.roundRect(x+6,y+12,28,17,5);ctx.fill();
+ ctx.fillStyle='#172536';ctx.fillRect(x+6,y+43,28,12);
+ ctx.fillStyle='#fff1a6';ctx.fillRect(x+5,y+3,8,4);ctx.fillRect(x+27,y+3,8,4);
+}
+function road(){
+ ctx.fillStyle='#26723b';ctx.fillRect(0,0,400,550);ctx.fillStyle='#353d49';ctx.fillRect(40,0,320,550);
+ ctx.fillStyle='#e7edf5';ctx.fillRect(40,0,5,550);ctx.fillRect(355,0,5,550);
+ ctx.fillStyle='#e8e8e8';for(let y=-60;y<560;y+=110){ctx.fillRect(145,y+lineOffset,6,55);ctx.fillRect(250,y+lineOffset,6,55)}
+ lineOffset=(lineOffset+speed)%110;
+}
+function draw(){
+ road();enemies.forEach(e=>drawCar(e.x,e.y,'#e84c4c'));drawCar(player.x,player.y,'#16a6e8');
+ if(!running&&over){ctx.fillStyle='#000b';ctx.fillRect(0,0,400,550);ctx.textAlign='center';ctx.fillStyle='#ffbd35';ctx.font='bold 38px Arial';ctx.fillText('RACE OVER',200,250);ctx.fillStyle='white';ctx.font='22px Arial';ctx.fillText('Score: '+Math.floor(score/5),200,292);ctx.font='16px Arial';ctx.fillText('Tap START / RESTART RACE',200,330)}
+ if(!running&&!over){ctx.fillStyle='#0009';ctx.fillRect(0,0,400,550);ctx.textAlign='center';ctx.fillStyle='#ffbd35';ctx.font='bold 34px Arial';ctx.fillText('TURBO RACING',200,245);ctx.fillStyle='white';ctx.font='18px Arial';ctx.fillText('Press START to race',200,285)}
+}
+function hit(a,b){return a.x+5<b.x+35&&a.x+35>b.x+5&&a.y+7<b.y+63&&a.y+63>b.y+7}
+function update(){
+ if(!running)return;
+ if(keys.left||keys.ArrowLeft||keys.a)player.x-=6;
+ if(keys.right||keys.ArrowRight||keys.d)player.x+=6;
+ player.x=Math.max(48,Math.min(312,player.x));frame++;
+ if(frame%Math.max(24,65-Math.floor(score/110))===0){let lanes=[75,180,285];enemies.push({x:lanes[Math.floor(Math.random()*3)],y:-85})}
+ enemies.forEach(e=>e.y+=speed);enemies=enemies.filter(e=>e.y<570);
+ if(enemies.some(e=>hit(player,e))){endGame();return}
+ score++;scoreEl.textContent=Math.floor(score/5);speed=4+score/650;
+ if(score%500===0)statusEl.textContent='Speed increasing!';
+}
+function loop(){if(!running)return;update();draw();raf=requestAnimationFrame(loop)}
+function start(){cancelAnimationFrame(raf);player.x=180;enemies=[];score=0;speed=4;lineOffset=0;frame=0;running=true;over=false;keys={};scoreEl.textContent='0';statusEl.textContent='Race in progress!';loop()}
+function endGame(){running=false;over=true;let s=Math.floor(score/5);if(s>best){best=s;localStorage.setItem('yusanRacingBest',best);bestEl.textContent=best}statusEl.textContent='Game over — try again!';draw()}
+document.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();keys[e.key]=true});
+document.addEventListener('keyup',e=>keys[e.key]=false);
+function bind(id,key){let b=document.getElementById(id);b.addEventListener('pointerdown',e=>{e.preventDefault();keys[key]=true});['pointerup','pointerleave','pointercancel'].forEach(ev=>b.addEventListener(ev,()=>keys[key]=false))}
+bind('left','left');bind('right','right');document.getElementById('restart').addEventListener('click',start);
+document.getElementById('year').textContent=new Date().getFullYear();draw();
+</script>
+</body>
+</html>
